@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganicAtelier.BLL.Abstract
+namespace OrganicAtelier.DAL.Abstract
 {
-    public interface IProductService:IRepositoryService<Product>
+    public interface ISliderDal
     {
-     
+        List<Slider> GetAll();
     }
 }

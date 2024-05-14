@@ -15,7 +15,9 @@ namespace OrganicAtelier.Entity
         public string Title { get; set; }
 
         public decimal Price { get; set; }
+
         public decimal Weight { get; set; }
+
         public decimal Unit { get; set; }
 
         [StringLength(200)]
@@ -23,6 +25,10 @@ namespace OrganicAtelier.Entity
 
         [StringLength(10)]
         public string Type { get; set; }
+
+        public bool Status { get; set; }
+
+        public bool IsPopular { get; set; }
 
         public int ProductTypeId { get; set; }
         public ProductType ProductType { get; set; }

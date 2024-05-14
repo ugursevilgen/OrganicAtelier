@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace OrganicAtelier.DAL.Concrete.EfCore
 {
-    public class EfCoreProductDal:EfCoreGenericRepository<Product, DataContext>, IProductDal
+    public class EfCoreSliderDal : ISliderDal
     {
-        public List<Product> GetPopularAll()
+        public List<Slider> GetAll()
         {
             using (var context = new DataContext())
             {
-                return context.Products.Where(i => i.IsPopular == true && i.Status == true).ToList();
+                return context.Sliders.ToList();
             }
         }
     }
-
 }
-

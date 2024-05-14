@@ -1,8 +1,10 @@
 ﻿using OrganicAtelier.BLL.Abstract;
+using OrganicAtelier.DAL.Abstract;
 using OrganicAtelier.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,27 +22,33 @@ namespace OrganicAtelier.BLL.Concrete
 
         public void Create(Product entity)
         {
-            throw new NotImplementedException();
+            _productDal.Create(entity);
         }
 
         public void Delete(Product entity)
         {
-            throw new NotImplementedException();
+            _productDal.Delete(entity);
         }
 
-        public List<Product> GetAll()
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter)
         {
-            throw new NotImplementedException();
+            return _productDal.GetAll(filter);
         }
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            return _productDal.GetById(id);
+        }
+
+        public List<Product> GetPopularAll()
+        {
+            return _productDal.GetPopularAll();
         }
 
         public void Update(Product entity)
         {
-            throw new NotImplementedException();
+            _productDal.Update(entity);
         }
     }
 }

@@ -18,6 +18,11 @@ namespace OrganicAtelier.WEBUI
             builder.Services.AddScoped<IProductService, ProductManager>();
             builder.Services.AddScoped<IProductDal, EfCoreProductDal>();
 
+            builder.Services.AddScoped<IProductTypeService, ProductTypeManager>();
+            builder.Services.AddScoped<IProductTypeDal, EfCoreProductTypeDal>();
+
+            builder.Services.AddScoped<ISliderService, SliderManager>();
+            builder.Services.AddScoped<ISliderDal, EfCoreSliderDal>();
 
             var app = builder.Build();
 

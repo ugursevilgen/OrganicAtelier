@@ -2,14 +2,8 @@
 
 namespace OrganicAtelier.DAL.Abstract
 {
-    public interface IProductDal
+    public interface IProductDal : IRepository <Product>
     {
-        List<Product> GetAll();
-        Product GetById(int id);
-
-        void Create(Product entity);
-        void Update(Product entity);
-        void Delete(Product entity);
-
+        List<Product> GetPopularAll();
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrganicAtelier.DAL.Concrete.EfCore
 {
-    internal class DataContext:DbContext
+    public class DataContext:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
