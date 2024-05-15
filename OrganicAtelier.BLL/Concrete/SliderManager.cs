@@ -4,24 +4,24 @@ using OrganicAtelier.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OrganicAtelier.BLL.Concrete
 {
-    public class SliderManager:ISliderService
+    public class SliderManager : ISliderService
     {
         private readonly ISliderDal _sliderDal;
 
         public SliderManager(ISliderDal sliderDal)
         {
             _sliderDal = sliderDal;
-                
         }
 
-        public List<Slider> GetAll()
+        public Slider GetAll(Expression<Func<Slider, bool>> filter)
         {
-            return _sliderDal.GetAll();
+            return _sliderDal.GetAll(filter);
         }
     }
 }

@@ -2,6 +2,7 @@ using OrganicAtelier.BLL.Abstract;
 using OrganicAtelier.BLL.Concrete;
 using OrganicAtelier.DAL.Abstract;
 using OrganicAtelier.DAL.Concrete.EfCore;
+using OrganicAtelier.WEBUI.Mapping;
 
 namespace OrganicAtelier.WEBUI
 {
@@ -13,6 +14,7 @@ namespace OrganicAtelier.WEBUI
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAutoMapper(typeof(MapProfile));
 
 
             builder.Services.AddScoped<IProductService, ProductManager>();

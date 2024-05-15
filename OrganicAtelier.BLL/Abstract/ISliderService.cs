@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OrganicAtelier.BLL.Abstract
 {
-    public interface ISliderService 
+    public interface ISliderService
     {
-        List<Slider> GetAll();
+        Slider GetAll(Expression<Func<Slider, bool>> filter = null);
     }
 }
