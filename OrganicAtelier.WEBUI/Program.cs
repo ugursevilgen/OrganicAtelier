@@ -63,7 +63,7 @@ namespace OrganicAtelier.WEBUI
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Admin}/{action=Index}/{id?}");
 
             app.Run();
         }
