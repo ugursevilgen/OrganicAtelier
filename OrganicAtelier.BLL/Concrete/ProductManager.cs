@@ -41,6 +41,11 @@ namespace OrganicAtelier.BLL.Concrete
             return _productDal.GetById(id);
         }
 
+        public Product GetOne(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetPopularAll()
         {
             return _productDal.GetPopularAll();

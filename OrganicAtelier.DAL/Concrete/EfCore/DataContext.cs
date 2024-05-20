@@ -19,5 +19,13 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<ProductDetail> ProductDetail { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Employment> Employments { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+
+
     }
 }

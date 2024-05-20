@@ -39,6 +39,11 @@ namespace OrganicAtelier.BLL.Concrete
             return _productTypeDal.GetById(id);
         }
 
+        public ProductType GetOne(Expression<Func<ProductType, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(ProductType entity)
         {
             _productTypeDal.Update(entity);

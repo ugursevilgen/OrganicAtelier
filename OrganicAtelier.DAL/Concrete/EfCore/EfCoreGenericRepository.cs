@@ -49,6 +49,11 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
             }
         }
 
+        public T GetOne(Expression<Func<T, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(T entity)
         {
             using (var context = new TContext())
