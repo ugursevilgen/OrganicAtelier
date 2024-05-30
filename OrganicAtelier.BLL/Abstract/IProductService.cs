@@ -9,6 +9,6 @@ namespace OrganicAtelier.BLL.Abstract
 {
     public interface IProductService:IRepositoryService<Product>
     {
-     
-    }
+		List<Product> GetPopularAll();
+	}
 }

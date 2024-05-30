@@ -1,10 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
 @await Component.InvokeAsync("_HomeCarouselViewComponentPartial")
-@await Component.InvokeAsync("_HomeAboutViewComponentPartial")
-@await Component.InvokeAsync("_HomeFeatureViewComponentPartial")
+@await Component.InvokeAsync("_HomePopularProductViewComponentPartial")
 @await Component.InvokeAsync("_HomeProductViewComponentPartial")
 @await Component.InvokeAsync("_HomeTestimonialViewComponentPartial")
 @await Component.InvokeAsync("_HomeBlogViewComponentPartial")

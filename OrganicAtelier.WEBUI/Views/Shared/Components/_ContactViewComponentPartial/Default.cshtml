@@ -39,37 +39,57 @@
                 </div>
             </div>           
             <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                            
-                <p> Lütfen öneri ve şikayetlerinizi bize iletin.
-                    </p>
-                <form>
+                
+                @if (TempData["MailSuccess"] == null)
+                {
+                    <p class="mb-4">Lütfen öneri ve şikayetlerinizi bize iletin.</p>
+                }
+                else
+                {  @if (TempData["MailSuccess"].ToString() == "true")
+                    {
+                        <div class="alert alert-success" role="alert">
+                            Mail Gönderimi Başarılı.
+                        </div>
+
+                    }
+
+                    else
+                    {
+
+                        <div class="alert alert-danger" role="alert">
+                            Mail Gönderimi Başarısız.
+                        </div>
+                    }
+                }
+
+                <form action="/Home/SendEmail">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                <label for="name">Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Ad Soyad">
+                                <label for="name">Ad Soyad</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                <label for="email">Your Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                <label for="subject">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Konu">
+                                <label for="subject">Konu</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                <label for="message">Message</label>
+                                <textarea class="form-control" placeholder="Mesaj" id="message" style="height: 200px"></textarea>
+                                <label for="message">Mesajınızı buraya yazınız.</label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Gönder</button>
                         </div>
                     </div>
                 </form>

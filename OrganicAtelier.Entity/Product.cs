@@ -33,5 +33,6 @@ namespace OrganicAtelier.Entity
         public int ProductTypeId { get; set; }
         public ProductType ProductType { get; set; }
 
+
     }
 }

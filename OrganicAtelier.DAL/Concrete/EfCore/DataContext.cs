@@ -12,7 +12,7 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=UGURSEVILGEN\\SQLEXPRESS; Database=OrganicAtelier; Integrated Security=true; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-INSI6O2\\SQLESXPRESS; Database=OrganicAtelier; Integrated Security=true; TrustServerCertificate=True;");
         }
 
         public DbSet<Product> Products { get; set; }
@@ -25,6 +25,7 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
         public DbSet<Feature> Features { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Mail> Mails { get; set; }
 
 
     }

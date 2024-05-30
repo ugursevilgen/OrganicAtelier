@@ -41,7 +41,7 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
             }
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             using (var context = new TContext())
             {
@@ -51,7 +51,10 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
 
         public T GetOne(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            using (var context = new TContext())
+            {
+                return context.Set<T>().FirstOrDefault(filter);
+            }
         }
 
         public void Update(T entity)

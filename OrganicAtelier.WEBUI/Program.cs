@@ -23,6 +23,9 @@ namespace OrganicAtelier.WEBUI
             builder.Services.AddScoped<IProductTypeService, ProductTypeManager>();
             builder.Services.AddScoped<IProductTypeDal, EfCoreProductTypeDal>();
 
+            builder.Services.AddScoped<IProductDetailService, ProductDetailManager>();
+            builder.Services.AddScoped<IProductDetailDal, EfCoreProductDetailDal>();
+
             builder.Services.AddScoped<ISliderService, SliderManager>();
             builder.Services.AddScoped<ISliderDal, EfCoreSliderDal>();
 
@@ -41,6 +44,11 @@ namespace OrganicAtelier.WEBUI
             builder.Services.AddScoped<IContactService, ContactManager>();
             builder.Services.AddScoped<IContactDal, EfCoreContactDal>();
 
+            builder.Services.AddScoped<IStatisticService, StatisticManager>();
+            builder.Services.AddScoped<IStatisticDal, EfCoreStatisticDal>();
+
+            builder.Services.AddScoped<IMailService, MailManager>();
+            builder.Services.AddScoped<IMailDal, EfCoreMailDal>();
 
             var app = builder.Build();
 

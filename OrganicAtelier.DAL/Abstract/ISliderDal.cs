@@ -10,6 +10,12 @@ namespace OrganicAtelier.DAL.Abstract
 {
     public interface ISliderDal
     {
-        Slider GetAll(Expression<Func<Slider, bool>> filter);
+        List<Slider> GetAll(Expression<Func<Slider, bool>> filter);
+        Slider GetOne(Expression<Func<Slider, bool>> filter);
+        Slider GetById(int id);
+
+        void Update(Slider entity);
+        void Create(Slider entity);
+        void Delete(Slider entity);
     }
 }

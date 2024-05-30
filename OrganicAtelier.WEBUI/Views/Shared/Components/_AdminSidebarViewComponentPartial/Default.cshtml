@@ -2,8 +2,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/Admin" class="brand-link">
-        <img src="~/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <img src="~/admin/dist/img/adminlogo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Organic Atelier Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,10 +11,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="~/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="~/admin/dist/img/adminprofile.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Uğur Sevilgen</a>
             </div>
         </div>
 
@@ -35,7 +35,131 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-               
+                <li class="nav-item">
+                    <a href="/Home/Index" class="nav-link">
+                        <i class="fas fa-yin-yang fa-spin fa-lg" style="color: #4fdcf8;"></i>
+                        <p>
+                            
+                            <i class= "fa-lg" style="color: #4fdcf8;"> Siteye Git </i>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-stream" style="color: #24f96f;"></i>
+                        <p>
+                            Ürün Türleri
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/ProductType/Index" class="nav-link">
+                                <i class="far fa-list-alt fa-lg" style="color: #24f96f;"></i>
+                                <p>Mevcut Ürün Çeşitleri</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/ProductType/Create" class="nav-link">
+                                <i class="fas fa-plus-circle fa-lg" style="color: #24f96f;"></i>
+                                <p>Yeni Ürün Çeşidi</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-seedling fa-lg" style="color: #24f96f;"></i>
+                        <p>
+                            Ürünler
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Product/Index" class="nav-link">
+                                <i class="far fa-list-alt fa-lg" style="color: #24f96f;"></i>
+                                <p>Ürün Liste</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Product/Create" class="nav-link">
+                                <i class="fas fa-plus-circle fa-lg" style="color: #24f96f;"></i>
+                                <p>Yeni Ürün</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fab fa-slideshare fa-lg" style="color: #24f96f;"></i>
+                        <p>
+                            Slider
+                            <i class="right fas fa-angle-left" ></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Slider/Index" class="nav-link">
+                                <i class="fas fa-th-list" style="color: #24f96f;"></i>
+                                <p>Slider Liste</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Slider/Create" class="nav-link" >
+                                <i class="fas fa-plus-square fa-lg" style="color: #24f96f;"></i>
+                                <p>Yeni Slider</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-comments fa-lg" style="color: #24f96f;"></i>
+                        <p>
+                            Client
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/Client/Index" class="nav-link">
+                                <i class="fas fa-th-list" style="color: #24f96f;"></i>
+                                <p>Client Liste</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Client/Create" class="nav-link">
+                                <i class="fas fa-plus-square fa-lg" style="color: #24f96f;"></i>
+                                <p>Yeni Client</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-comments fa-lg" style="color: #24f96f;"></i>
+                        <p>
+                            Biz Kimiz?
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/About/Index" class="nav-link">
+                                <i class="fas fa-th-list" style="color: #24f96f;"></i>
+                                <p>Bilgi Güncelleme</p>
+                            </a>                        
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/Statistic/Index" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie fa-lg" style="color: #24f96f;"></i>
+                        <p>
+                            İstatistikler
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

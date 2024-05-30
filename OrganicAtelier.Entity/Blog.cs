@@ -16,11 +16,7 @@ namespace OrganicAtelier.Entity
         [StringLength(2000)]
         public string Text { get; set; }
         [StringLength(200)]
-        public string Writer { get; set; }
-
-        [Display(Name = "Tarih")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public string Writer { get; set; }       
         public DateTime Date { get; set; }
 
     }

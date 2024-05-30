@@ -43,7 +43,7 @@ namespace OrganicAtelier.BLL.Concrete
 
         public Product GetOne(Expression<Func<Product, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return _productDal.GetOne(filter);
         }
 
         public List<Product> GetPopularAll()

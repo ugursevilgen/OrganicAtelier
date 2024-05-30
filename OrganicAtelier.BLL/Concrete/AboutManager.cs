@@ -4,6 +4,7 @@ using OrganicAtelier.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +18,10 @@ namespace OrganicAtelier.BLL.Concrete
         {
             _aboutDal = aboutDal;
         }
-        public About GetOne()
+
+        public About GetOne(Expression<Func<About, bool>> filter = null)
         {
-            return _aboutDal.GetOne();
+            return _aboutDal.GetOne(filter);
         }
 
         public void Update(About entity)

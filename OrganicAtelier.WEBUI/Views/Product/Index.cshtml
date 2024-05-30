@@ -56,7 +56,7 @@
 
 
                                 <td><a href="/Product/Edit?id=@pr.Id" class="btn btn-outline-warning">Güncelle</a></td>
-                                <td><a href="/Product/Delete?id=@pr.Id" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Product/Delete?id=@pr.Id" onclick="return confirmDelete();" class="btn btn-outline-danger">Sil</a></td>
                             </tr>
                         }
 
@@ -70,3 +70,8 @@
         <!-- /.card -->
     </div>
 </div>
+<script type="text/javascript">
+    function confirmDelete() {
+        return confirm("Silmek istediğinize emin misiniz?");
+    }
+</script>

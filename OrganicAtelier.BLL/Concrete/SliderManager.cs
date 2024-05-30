@@ -19,7 +19,32 @@ namespace OrganicAtelier.BLL.Concrete
             _sliderDal = sliderDal;
         }
 
-        public Slider GetAll(Expression<Func<Slider, bool>> filter)
+        public void Create(Slider entity)
+        {
+            _sliderDal.Create(entity);
+        }
+
+        public Slider GetById(int id)
+        {
+            return _sliderDal.GetById(id);
+        }
+
+        public void Delete(Slider entity)
+        {
+            _sliderDal.Create(entity);
+        }
+
+        public Slider GetOne(Expression<Func<Slider, bool>> filter = null)
+        {
+            return _sliderDal.GetOne(filter);
+        }
+
+        public void Update(Slider entity)
+        {
+            _sliderDal.Update(entity);
+        }
+
+        List<Slider> ISliderService.GetAll(Expression<Func<Slider, bool>> filter = null)
         {
             return _sliderDal.GetAll(filter);
         }

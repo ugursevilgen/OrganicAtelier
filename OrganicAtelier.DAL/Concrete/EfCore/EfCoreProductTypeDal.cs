@@ -17,13 +17,9 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
         {
             using (var context = new DataContext())
             {
-                var productTypes = context.ProductTypes.Include(i => i.Products).AsNoTracking().AsQueryable();
-                //var productTypes = context.ProductTypes.Include("Products").ToList();
-
-                if (filter != null)
-                    productTypes = productTypes.Where(filter);
-
-                return productTypes.ToList();
+                return filter == null
+                    ? context.ProductTypes.ToList()
+                    : context.ProductTypes.Where(filter).ToList();
             }
         }
     }

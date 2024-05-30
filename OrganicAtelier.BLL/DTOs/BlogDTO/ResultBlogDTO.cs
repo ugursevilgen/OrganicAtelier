@@ -17,9 +17,6 @@ namespace OrganicAtelier.BLL.DTOs.BlogDTO
         public string Text { get; set; }
         [StringLength(200)]
         public string Writer { get; set; }
-        [Display(Name = "Tarih")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
     }
 }
