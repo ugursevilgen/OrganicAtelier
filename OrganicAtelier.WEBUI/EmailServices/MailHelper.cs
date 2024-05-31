@@ -34,7 +34,7 @@ namespace OrganicAtelier.WEBUI.EmailServices
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587;
                     smtp.EnableSsl = true;
-                    smtp.Credentials = new NetworkCredential("testugursevilgen@gmail.com", "");
+                    smtp.Credentials = new NetworkCredential("testugursevilgen@gmail.com", "ehzu lkfx bqmv nrpr");
 
                     smtp.Send(message);
 

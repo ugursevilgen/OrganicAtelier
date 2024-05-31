@@ -2,7 +2,7 @@
 
 namespace OrganicAtelier.WEBUI.ViewComponents.Blog
 {
-    public class _BlogHeaderViewComponenPartial : ViewComponent
+    public class _BlogHeaderViewComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
