@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganicAtelier.Entity
+namespace OrganicAtelier.BLL.DTOs.MailDTO
 {
-    public class Mail
+    public class ResultMailDTO
     {
         public int Id { get; set; }
         [StringLength(50)]
@@ -21,6 +21,5 @@ namespace OrganicAtelier.Entity
         public bool Read { get; set; }
         public DateTime SendDate { get; set; }
         public bool Reply { get; set; }
-
     }
 }

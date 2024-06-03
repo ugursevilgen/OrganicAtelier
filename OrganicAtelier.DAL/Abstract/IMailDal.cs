@@ -15,5 +15,6 @@ namespace OrganicAtelier.DAL.Abstract
         Mail GetById(int id);
         void Create(Mail entity);
         void Update(Mail entity);
+        List<Mail> GetLast4(Expression<Func<Mail, bool>> filter = null);
     }
 }

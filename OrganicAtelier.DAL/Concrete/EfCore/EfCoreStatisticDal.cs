@@ -1,4 +1,5 @@
 ﻿using OrganicAtelier.DAL.Abstract;
+using OrganicAtelier.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,9 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
         {
             using (var context = new DataContext())
             {
-                return context.Products.Average(i => i.Price);
+                var avaragePrice = context.Products.Average(e => e.Price);
+
+                return Math.Round(avaragePrice, 2);
             }
         }
 
@@ -29,7 +32,8 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
         {
             using (var context = new DataContext())
             {
-                return context.Products.Average(i => i.Weight);
+                var averageWeight = context.Products.Average(e => e.Weight);
+                return Math.Round(averageWeight, 2);
             }
         }
 

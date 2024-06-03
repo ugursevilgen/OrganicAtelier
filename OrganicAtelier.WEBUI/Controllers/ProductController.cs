@@ -120,7 +120,7 @@ namespace OrganicAtelier.WEBUI.Controllers
                     {
                         Code = 102,
                         Title = "İlan Bulunamadı",
-                        Description = "Lütfen varolan bir ilanı seçiniz.",
+                        Description = "Lütfen varolan bir ürün seçiniz.",
                         ReturnUrl = "/Product/Index",
                         Css = "text-danger"
                     };
@@ -148,6 +148,28 @@ namespace OrganicAtelier.WEBUI.Controllers
             ViewBag.ProductTypes = _productTypeService.GetAll();
 
             return View(dto);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var product = _productService.GetById(id);
+
+            if (product == null)
+            {
+                ErrorViewModel error = new ErrorViewModel()
+                {
+                    Code = 102,
+                    Title = "İlan Bulunamadı",
+                    Description = "Lütfen varolan bir ilanı seçiniz.",
+                    ReturnUrl = "/Product/Index",
+                    Css = "text-danger"
+                };
+                return View("Error", error);
+            }
+
+            _productService.Delete(product);
+            ImageMethods.DeleteImage(product.Image);
+            return RedirectToAction("Index");
         }
 
         public IActionResult StatusChange(int id)

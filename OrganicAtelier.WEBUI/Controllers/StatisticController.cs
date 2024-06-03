@@ -18,8 +18,8 @@ namespace OrganicAtelier.WEBUI.Controllers
             ViewBag.ProductTypeCount = _statisticService.ProductTypesCount();
             ViewBag.ActiveProductTypeCount = _statisticService.ActiveProductTypeCount();
             ViewBag.ProductCount = _statisticService.ProductCount();
-            ViewBag.AvgProductBySale = _statisticService.AvgProductPrice();
-            ViewBag.AvgProductBySale = _statisticService.AvgProductWeight();
+            ViewBag.AvgProductPrice = _statisticService.AvgProductPrice();
+            ViewBag.AvgProductWeight = _statisticService.AvgProductWeight();
             ViewBag.LastProductPrice = _statisticService.LastProductPrice();
             ViewBag.TheMostExpensiveProduct = _statisticService.TheMostExpensiveProduct();
             ViewBag.CheapestProduct = _statisticService.CheapestProduct();
