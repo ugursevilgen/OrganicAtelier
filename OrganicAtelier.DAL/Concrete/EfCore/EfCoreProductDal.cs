@@ -32,7 +32,14 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
             }
         }
 
-       
+        public List<Product> Last5Product()
+        {           
+               using (var context = new DataContext())
+                {
+                    return context.Products.Include(i => i.ProductType).OrderByDescending(i => i.Id).Take(5).ToList();
+                }
+            
+        }
     }
 
 }

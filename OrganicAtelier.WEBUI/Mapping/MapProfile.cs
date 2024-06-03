@@ -4,6 +4,7 @@ using OrganicAtelier.BLL.DTOs.BlogDTO;
 using OrganicAtelier.BLL.DTOs.ClientDTO;
 using OrganicAtelier.BLL.DTOs.ContactDTO;
 using OrganicAtelier.BLL.DTOs.FeatureDTO;
+using OrganicAtelier.BLL.DTOs.MailDTO;
 using OrganicAtelier.BLL.DTOs.ProductDetailDTO;
 using OrganicAtelier.BLL.DTOs.ProductDTO;
 using OrganicAtelier.BLL.DTOs.ProductTypeDTO;
@@ -39,6 +40,7 @@ namespace OrganicAtelier.WEBUI.Mapping
             CreateMap<Feature, ResultFeatureDTO>().ReverseMap();
             CreateMap<Blog, ResultBlogDTO>().ReverseMap();
             CreateMap<Contact, ResultContactDTO>().ReverseMap();
+            CreateMap<Mail, ResultMailDTO>().ReverseMap();
 
 
         }

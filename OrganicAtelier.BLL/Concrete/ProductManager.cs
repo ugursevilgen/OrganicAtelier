@@ -51,6 +51,11 @@ namespace OrganicAtelier.BLL.Concrete
             return _productDal.GetPopularAll();
         }
 
+        public List<Product> Last5Product()
+        {
+            return _productDal.Last5Product();
+        }
+
         public void Update(Product entity)
         {
             _productDal.Update(entity);

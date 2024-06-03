@@ -10,5 +10,6 @@ namespace OrganicAtelier.BLL.Abstract
     public interface IProductService:IRepositoryService<Product>
     {
 		List<Product> GetPopularAll();
-	}
+        List<Product> Last5Product();
+    }
 }

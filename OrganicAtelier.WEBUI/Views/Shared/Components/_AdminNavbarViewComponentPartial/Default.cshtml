@@ -4,7 +4,68 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
+        <center>
+            <script type="text/javascript">
+                window.onload = setInterval(clock, 1000);
+
+                function clock() {
+                    var d = new Date();
+                    var date = d.getDate();
+                    var month = d.getMonth();
+                    var montharr = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+                    month = montharr[month];
+                    var year = d.getFullYear();
+                    var date = d.getDate();
+                    var day = d.getDay();
+                    var dayarr = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+                    day = dayarr[day];
+                    var hour = d.getHours();
+                    var min = d.getMinutes();
+                    var sec = d.getSeconds();
+                    document.getElementById("date").innerHTML = day + " " + date + " " + month + " " + year;
+                    document.getElementById("time").innerHTML = hour + ":" + min + ":" + sec;
+                }
+
+            </script> <center>
+                <style type="text/css">                    body {
+                        text-align: left;
+                        font-family: helvetica;
+                    }
+
+                    h1 {
+                        margin: 0px;
+                        margin-top: 20px;
+                        color: #8181F7;
+                        font-size: 25px;
+                    }
+
+                    #date {
+                        margin-top: 20px;
+                        text-align: center;
+                        color: green;
+                        font-size: 20px;
+                        border: 2px dashed #2E9AFE;
+                        padding: 5px;
+                        width: 250px;
+                        margin-left: 0px;
+                    }
+
+                    #time {
+                        margin-top: 20px;
+                        font-size: 20px;
+                        text-align: center;
+                        color: green;
+                        border: 2px dashed #2E9AFE;
+                        padding: 5px;
+                        width: 150px;
+                        margin-left: 25px;
+                    }
+                </style> <table>     <tbody>         <tr>             <td>             <p id="date"> </p>             </td>             <td>             <p id="time"> </p>             </td>         </tr>     </tbody> </table>
+            </center>
+
     </ul>
+
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
