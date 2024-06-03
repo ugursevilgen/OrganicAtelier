@@ -40,7 +40,7 @@
                             <div class="form-group">
                                 <label>ProductType</label>
                                 <select class="form-control select2" style="width: 100%;" asp-for="ProductTypeId">
-                                    <option value="">-- Kategori Seçiniz --</option>
+                                    <option value="">-- Ürün Türü Seçiniz --</option>
                                     @foreach (var item in ViewBag.ProductTypes) 
                                     {
                                         <option value="@item.Id">@item.Name</option>

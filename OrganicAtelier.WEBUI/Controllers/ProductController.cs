@@ -83,8 +83,9 @@ namespace OrganicAtelier.WEBUI.Controllers
             }
 
             var product = _productService.GetById(id);
+			ViewBag.ProductTypes = _productTypeService.GetAll();
 
-            if (product == null)
+			if (product == null)
             {
                 ErrorViewModel error = new ErrorViewModel()
                 {
@@ -130,11 +131,14 @@ namespace OrganicAtelier.WEBUI.Controllers
                 {
                     ImageMethods.DeleteImage(product.Image);
                     dto.Image = await ImageMethods.UploadImage(file);
-                }
+					ViewBag.ProductTypes = _productTypeService.GetAll();
+				}
                 else
                 {
                     dto.Image = product.Image;
-                }
+                    
+                    ViewBag.ProductTypes = _productTypeService.GetAll();
+				}
 
 
                 _productService.Update(_mapper.Map<Product>(dto));

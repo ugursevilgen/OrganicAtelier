@@ -18,20 +18,20 @@
 						<a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-2">Meyveler </a>
 					</li>
 					<li class="nav-item me-0">
-						<a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-3">Yeşillik</a>
+						<a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-3">Yeşillikler ve Otlar</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="tab-content">
 			<div id="tab-1" class="tab-pane fade show p-0 active">
-				@Html.Partial("_PartialProduct", Model.Where(i => i.Type == "Sebze").Take(5).ToList())
+				@Html.Partial("_PartialProduct", Model.Where(i => i.ProductType.Name == "Sebze").Take(5).ToList())
 			</div>
 			<div id="tab-2" class="tab-pane fade show p-0">
-				@Html.Partial("_PartialProduct", Model.Where(i => i.Type == "Meyve").Take(5).ToList())
+				@Html.Partial("_PartialProduct", Model.Where(i => i.ProductType.Name == "Meyve").Take(5).ToList())
 			</div>
 			<div id="tab-3" class="tab-pane fade show p-0">
-				<partial name="_PartialProduct" model="@(Model.Where(i => i.Type == "Yeşillik").Take(5).ToList())" />
+				@Html.Partial("_PartialProduct", Model.Where(i => i.ProductType.Name == "Yeşillikler ve Otlar").Take(5).ToList())
 			</div>
 		</div>
 	</div>
