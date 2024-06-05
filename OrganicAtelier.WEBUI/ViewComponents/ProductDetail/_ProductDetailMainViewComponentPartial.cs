@@ -1,25 +1,26 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using OrganicAtelier.BLL.Abstract;
+using OrganicAtelier.BLL.DTOs.ProductDetailDTO;
 using OrganicAtelier.BLL.DTOs.ProductDTO;
 
 namespace OrganicAtelier.WEBUI.ViewComponents.ProductDetail
 {
     public class _ProductDetailMainViewComponentPartial : ViewComponent
     {
-        private readonly IProductService _productService;
+        private readonly IProductDetailService _productDetailService;
         private readonly IMapper _mapper;
 
-        public _ProductDetailMainViewComponentPartial(IProductService productService, IMapper mapper)
+        public _ProductDetailMainViewComponentPartial(IProductDetailService productDetailService, IMapper mapper)
         {
-            _productService = productService;
+            _productDetailService = productDetailService;
             _mapper = mapper;
         }
 
         public IViewComponentResult Invoke(int id)
         {
-            var product = _productService.GetById(id);
-            return View(_mapper.Map<ResultProductDTO>(product));
+            var product = _productDetailService.GetById(id);
+            return View(_mapper.Map<ResultProductDetailDTO>(product));
         }
     }
 }
