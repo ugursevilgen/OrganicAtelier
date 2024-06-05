@@ -3,11 +3,14 @@
     ViewData["Title"] = "Register";
 }
 
-@await Component.InvokeAsync("_AboutHeaderViewComponentPartial")
+@await Component.InvokeAsync("_AccountRegisterHeaderViewComponentPartial")
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-6 offset-3">
+                <div class="col-6 offset-4">
+                    <img src="~/img/OrganicAtelierLogo(250x250).jpeg" class="brand-image img-circle elevation-3" style="max-width: 250px; max-height: 250px;">
+                </div>
                 <form action="/Account/Register" method="post">
                     @Html.AntiForgeryToken()
 
