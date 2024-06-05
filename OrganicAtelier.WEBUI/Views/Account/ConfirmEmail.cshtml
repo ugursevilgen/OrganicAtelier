@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmEmail";
+}
+
+@await Component.InvokeAsync("_AboutHeaderViewComponentPartial")
+<hr />
+<div class="alert alert-warning">
+    @if (TempData["message"] != null)
+    {
+        @TempData["message"]
+    }
+</div>
+
+<script>
+    setTimeout(function() {
+        window.location.href = '/Account/Login'; // Replace '/Account/Login' with your actual login URL
+    }, 5000); // 5000 milliseconds = 5 seconds
+</script>

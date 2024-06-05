@@ -109,7 +109,7 @@ namespace OrganicAtelier.WEBUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(UpdateProductDTO dto, IFormFile file)
         {
-            ModelState.Remove("Image");
+            ModelState.Remove("file");
             if (ModelState.IsValid)
             {
                 var product = _productService.GetById(dto.Id);
@@ -130,15 +130,8 @@ namespace OrganicAtelier.WEBUI.Controllers
                 if (file != null)
                 {
                     ImageMethods.DeleteImage(product.Image);
-                    dto.Image = await ImageMethods.UploadImage(file);
-					ViewBag.ProductTypes = _productTypeService.GetAll();
-				}
-                else
-                {
-                    dto.Image = product.Image;
-                    
-                    ViewBag.ProductTypes = _productTypeService.GetAll();
-				}
+                    dto.Image = await ImageMethods.UploadImage(file);					
+				}               
 
 
                 _productService.Update(_mapper.Map<Product>(dto));

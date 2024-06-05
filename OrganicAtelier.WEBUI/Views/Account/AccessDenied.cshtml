@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "AccessDenied";
+}
+
+@await Component.InvokeAsync("_AboutHeaderViewComponentPartial")
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-warning">
+                    @TempData["message"]
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location.href = '/Home/Index'; // Replace '/Account/Login' with your actual login URL
+    }, 5000); // 5000 milliseconds = 5 seconds
+</script>

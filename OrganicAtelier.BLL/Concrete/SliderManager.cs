@@ -31,7 +31,7 @@ namespace OrganicAtelier.BLL.Concrete
 
         public void Delete(Slider entity)
         {
-            _sliderDal.Create(entity);
+            _sliderDal.Delete(entity);
         }
 
         public Slider GetOne(Expression<Func<Slider, bool>> filter = null)

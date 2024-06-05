@@ -1,5 +1,5 @@
-﻿ @model ResultContactDTO  
- <!-- Navbar Start -->
+﻿ @model ResultContactDTO
+<!-- Navbar Start -->
 <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
     <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
         <div class="col-lg-6 px-5 text-start">
@@ -34,12 +34,24 @@
                 <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                     <small class="fa fa-search text-body"></small>
                 </a>
-                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                    <small class="fa fa-user text-body"></small>
-                </a>
-                <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                    <small class="fa fa-shopping-bag text-body"></small>
-                </a>
+               
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+                        <small class="fa fa-shopping-bag text-body"></small>
+                    </a>
+
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/Account/Logout">
+                        <small class="fas fa-sign-out-alt text-body"></small>
+                    </a>
+                }
+                else
+                {
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="/Account/login">
+                        <small class="fa fa-user text-body"></small>
+                    </a>
+                }
+
             </div>
         </div>
     </nav>
