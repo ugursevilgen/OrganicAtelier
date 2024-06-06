@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using OrganicAtelier.BLL.Abstract;
 using OrganicAtelier.WEBUI.EmailServices;
 using OrganicAtelier.WEBUI.Identity;
 using OrganicAtelier.WEBUI.Models;
@@ -11,11 +12,13 @@ namespace OrganicAtelier.WEBUI.Controllers
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
+        private readonly ICartService _cartService;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _cartService = cartService;
         }
               
 
@@ -130,11 +133,24 @@ namespace OrganicAtelier.WEBUI.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
             {
+                if (user.EmailConfirmed)
+                {
+                    TempData["success"] = "Hesabınız Zaten Onaylı";
+                    return RedirectToAction("Login");
+                }
                 var result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
-                    TempData["message"] = "Hesabınız Onaylandı";
-                    return View();
+                    TempData["success"] = "Hesabınız Onaylandı";
+                    _cartService.InitializeCart(user.Id);
+
+                    //EmailConfirmed kontrol edilmiyorsa çoklu cart kaydını engeleme
+                    //if(_cartService.GetOne(i=> i.UserId == user.Id) == null)
+                    //{
+                    //            _cartService.InitializeCart(user.Id);
+                    //}
+
+                    return RedirectToAction("Login");
                 }
             }
 
@@ -157,7 +173,7 @@ namespace OrganicAtelier.WEBUI.Controllers
 
             var user = await _userManager.FindByEmailAsync(Email);
 
-            if (user==null)
+            if (user == null)
             {
                 return View();
             }
@@ -169,6 +185,7 @@ namespace OrganicAtelier.WEBUI.Controllers
                 token = code,
                 email=Email
             });
+
             //send Email
             string activeUrl = "http://localhost:5050" + callbackUrl;
             string body = $"Yeni şifre tanımlamak için lütfen <a href='{activeUrl}' target='_blank'> linke </a> tıklayınız.";

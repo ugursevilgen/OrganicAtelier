@@ -102,9 +102,10 @@ namespace OrganicAtelier.WEBUI
             builder.Services.AddScoped<IMailService, MailManager>();
             builder.Services.AddScoped<IMailDal, EfCoreMailDal>();
 
+            builder.Services.AddScoped<ICartService, CartManager>();
+            builder.Services.AddScoped<ICartDal, EfCoreCartDal>();
+
             var app = builder.Build();
-
-
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

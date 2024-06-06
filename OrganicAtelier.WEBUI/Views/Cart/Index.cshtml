@@ -1,0 +1,132 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@await Component.InvokeAsync("_ProductHeaderViewComponentPartial")
+
+<div class="container">
+
+    @if (Model.CartItems.Count == 0)
+    {
+        <div class="alert alert-warning">
+            <h2>Sepet Boş</h2>
+        </div>
+        <script>
+            setTimeout(function () {
+                window.location.href = '/Home/Index'; // Replace '/Account/Login' with your actual login URL
+            }, 5000); // 5000 milliseconds = 5 seconds
+        </script>
+    }
+    else
+    {
+        <h1>Shopping Cart</h1>
+        <div class="row">
+            <div class="col-8">
+                <div class="text-left">
+                    <h4>Cart Items</h4>
+                </div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <tr>
+                                <th>
+                                    <img src="~/img/@item.Product.Image" width="80" />
+                                </th>
+                                <td>@item.Product.Title</td>
+                                <td>@item.Product.Price</td>
+                                <td><input type="number" name="Quantity" id="quantityInput_@item.Product.Id" value="@item.Quantity" /></td>
+                                <td  id="totalPrice_@item.Product.Id">@((item.Quantity * item.Product.Price).ToString("c"))</td>
+                                <td>
+                                    <form action="/Cart/DeleteProduct" method="post">
+                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-4">
+                <div class="text-left">
+                    <h4>Cart Summary</h4>
+                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Cart Total</th>
+                            <td id="cartTotal">@Model.CartItems.Sum(i => i.Product.Price * i.Quantity).ToString("c")</td>
+                        </tr>
+                        <tr>
+                            <th>Shipping</th>
+                            <td>Free</td>
+                        </tr>
+                        <tr>
+                            <th>Tax</th>
+                            <td id="tax">@((Model.CartItems.Sum(i => i.Product.Price * i.Quantity) * (decimal)0.2).ToString("c"))</td>
+                        </tr>
+                        <tr>
+                            <th>Order Total</th>
+                            <td id="orderTotal">@((Model.CartItems.Sum(i => i.Product.Price * i.Quantity) * (decimal)1.2).ToString("c"))</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                    <a href="/" class="btn btn-primary">
+                        Checkout <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    }
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('input[name="Quantity"]').change(function () {
+            var productId = $(this).attr('id').split('_')[1]; // Ürününüzün kimliğini alın
+            var newQuantity = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '/Cart/UpdateQuantity', // Sunucu tarafında güncelleme işlemini yapacak bir URL
+                data: { productId: productId, quantity: newQuantity },
+                success: function (data) {
+                    // Başarılı olursa, fiyatı güncelleyin
+                    $('#totalPrice_' + productId).text(data);
+                    $.ajax({
+                        type: 'get',
+                        url: '/Cart/TotalPrice',
+                        success: function (total, tax, orderTotal) {
+                            console.log(total)
+                            $('#cartTotal').text(total["total"]);
+                            $('#tax').text(total["tax"]);
+                            $('#orderTotal').text(total["orderTotal"]);
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+</script>
