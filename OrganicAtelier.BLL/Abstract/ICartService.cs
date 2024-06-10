@@ -15,6 +15,8 @@ namespace OrganicAtelier.BLL.Abstract
 
         CartItem GetProductByCart(int productId, int cartId);
 
+        void ClearCart(int cartId);
+
         void AddToCart(string userId, int productId, int quantity);
 
         void UpdateCart(Cart entity);

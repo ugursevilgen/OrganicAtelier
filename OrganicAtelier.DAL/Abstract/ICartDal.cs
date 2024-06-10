@@ -16,5 +16,6 @@ namespace OrganicAtelier.DAL.Abstract
         void Update(CartItem entity);
         void Delete(CartItem entity);
         void UpdateCart(Cart entity);
+        void ClearCart(int cartId);
     }
 }

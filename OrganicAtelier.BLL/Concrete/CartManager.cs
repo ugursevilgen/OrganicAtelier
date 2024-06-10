@@ -44,6 +44,11 @@ namespace OrganicAtelier.BLL.Concrete
             }
         }
 
+        public void ClearCart(int cartId)
+        {
+            _cartDal.ClearCart(cartId);
+        }
+
         public void Delete(CartItem entity)
         {
             _cartDal.Delete(entity);

@@ -105,6 +105,9 @@ namespace OrganicAtelier.WEBUI
             builder.Services.AddScoped<ICartService, CartManager>();
             builder.Services.AddScoped<ICartDal, EfCoreCartDal>();
 
+            builder.Services.AddScoped<IOrderService, OrderManager>();
+            builder.Services.AddScoped<IOrderDal, EfCoreOrderDal>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

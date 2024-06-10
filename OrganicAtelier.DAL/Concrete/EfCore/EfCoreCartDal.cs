@@ -64,5 +64,14 @@ namespace OrganicAtelier.DAL.Concrete.EfCore
                 context.SaveChanges();
             }
         }
+
+        public void ClearCart(int cartId)
+        {
+            using (var context = new DataContext())
+            {
+                var cmd = @"delete from CartItem where cartId=@p0";
+                context.Database.ExecuteSqlRaw(cmd, cartId);                
+            }
+        }
     }
 }
