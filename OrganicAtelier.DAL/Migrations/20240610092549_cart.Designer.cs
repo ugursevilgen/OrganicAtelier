@@ -12,8 +12,8 @@ using OrganicAtelier.DAL.Concrete.EfCore;
 namespace OrganicAtelier.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240606104304_AddingOrder")]
-    partial class AddingOrder
+    [Migration("20240610092549_cart")]
+    partial class cart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
